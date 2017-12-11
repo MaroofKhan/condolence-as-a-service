@@ -24,7 +24,7 @@ application.get("/condole/:about/:whom/:from", function(req, res) {
 	]
 	const random = Math.floor(Math.random() * responses.length)
 	const condolence = responses[random]
-	const html = "<!DOCTYPE html>\n<html>\n    <head><meta property=\"og:title\" content=\"I feel sorry for you " + whom  + "!\"/>    </head>\n <body>\n      <h1>"+ condolence +"</h1><br\><p>- from your friend, " + from  + ".</p>\n </body>\n</html>"
+	const html = "<!DOCTYPE html>\n<html>\n    <head><meta property=\"og:title\" content=\"I feel sorry for you " + whom  + "!\"/><meta property=\"og:description\" content=\"...from your friend, " + from + "\"/>    </head>\n <body>\n      <h1>"+ condolence +"</h1><br\><p>- from your friend, " + from  + ".</p>\n </body>\n</html>"
 	res.send(html)
 })
 
