@@ -20,11 +20,12 @@ application.get("/condole/:about/:whom/:from", function(req, res) {
 		"Please accept my condolences, just know that I am here for you " + whom + ", please don’t hesitate to reach out, especially during this difficult time.",
 		"I am truly sorry to hear of your loss " + whom + ". Please accept our condolences and may our prayers help comfort you.",
 		"Whatever happens, happens for good " + whom + "! I'm sure God had better plans for your " + about + ".",
-		"Every cloud has a silver lining, therefore, every " + about + " trouble will eventually be reolved. Stay strong + " + whom + "!"
+		"Every cloud has a silver lining, therefore, every " + about + " trouble will eventually be reolved. Stay strong " + whom + "!"
 	]
 	const random = Math.floor(Math.random() * responses.length)
 	const condolence = responses[random]
-	res.send(condolence)
+	const html = "<!DOCTYPE html>\n<html>\n    <head>\n    </head>\n <body>\n      <h1>"+ condolence +"</h1><br\><p>- from your friend, " + from  + ".</p>\n </body>\n</html>"
+	res.send(html)
 })
 
 const server = require("http").createServer(application)
